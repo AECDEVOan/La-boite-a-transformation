@@ -87,13 +87,49 @@ public class GameManager : MonoBehaviour
     /// This work with tag detection and spawn the exact same object with the exact same references
     /// </summary>
     /// <param name="trigger"> reference to the init of trigger method</param>
+    #region CUBE
     public void TriggerNoChangingCBLUE(TriggerNochanging trigger)
     {
         GameObject CubeBleu = (objectList.Find(x => x.tag == "CUBEBLEU")) as GameObject;
         Instantiate(CubeBleu, objectNoColorChangingSpawner.transform.position, objectNoColorChangingSpawner.transform.rotation);
         Destroy(GameObject.Find("CUBEBLEU"));
-        
     }
+
+    public void TriggerNoChangingCRED(TriggerNochanging trigger)
+    {
+        GameObject CubeRouge = (objectList.Find(x => x.tag == "CUBEROUGE")) as GameObject;
+        Instantiate(CubeRouge, objectNoColorChangingSpawner.transform.position, objectNoColorChangingSpawner.transform.rotation);
+        Destroy(GameObject.Find("CUBEROUGE"));
+    }
+    #endregion
+    #region BALLE
+    public void TriggerNoChangingBBLUE(TriggerNochanging trigger)
+    {
+        GameObject BalleBleu = (objectList.Find(x => x.tag == "BALLEBLEU")) as GameObject;
+        Instantiate(BalleBleu, objectNoColorChangingSpawner.transform.position, objectNoColorChangingSpawner.transform.rotation);
+        Destroy(GameObject.Find("BALLEBLEU"));
+    }
+    public void TriggerNoChangingBRED(TriggerNochanging trigger)
+    {
+        GameObject BalleRouge = (objectList.Find(x => x.tag == "BALLEROUGE")) as GameObject;
+        Instantiate(BalleRouge, objectNoColorChangingSpawner.transform.position, objectNoColorChangingSpawner.transform.rotation);
+        Destroy(GameObject.Find("BALLEROUGE"));
+    }
+    #endregion
+    #region CYLINDRE
+    public void TriggerNoChangingCYBLUE(TriggerNochanging trigger)
+    {
+        GameObject BalleBleu = (objectList.Find(x => x.tag == "CYLINDREBLEU")) as GameObject;
+        Instantiate(BalleBleu, objectNoColorChangingSpawner.transform.position, objectNoColorChangingSpawner.transform.rotation);
+        Destroy(GameObject.Find("CYLINDREBLEU"));
+    }
+    public void TriggerNoChangingCYRED(TriggerNochanging trigger)
+    {
+        GameObject BalleBleu = (objectList.Find(x => x.tag == "CYLINDREROUGE")) as GameObject;
+        Instantiate(BalleBleu, objectNoColorChangingSpawner.transform.position, objectNoColorChangingSpawner.transform.rotation);
+        Destroy(GameObject.Find("CYLINDREROUGE"));
+    }
+    #endregion
 }
 
 
