@@ -18,7 +18,8 @@ public class GameManager : MonoBehaviour
 
     #region Transform
     //Init of spawner transform (maybe a private settings ? 03/10/2022)
-    public Transform objectSpawner;
+    public Transform objectChangerColorSpawner;
+    public Transform objectNoColorChangingSpawner;
     #endregion
 
     public void Start()
@@ -27,57 +28,72 @@ public class GameManager : MonoBehaviour
         objectList = new List<GameObject>(Resources.LoadAll<GameObject>("Prefab"));
     }
 
-    #region Color declare
+    #region Color Changing declare
     /// <summary> Color declare 
     /// This is the list of script for the prefab changing.
     /// This work with tag detection and spawn with spawn parameter. 2 object with 2 differents parameters. (for the moment on 03/10/2022 Blue and Red)
     /// </summary>
-    /// <param name="trigger"> reference to the script Trigger1</param>
+    /// <param name="trigger"> reference to the init of trigger method</param>
     #region CUBE
-    public void TriggerColorChangingCBLEU(Trigger trigger)
+    public void TriggerColorChangingCBLUE(TriggerChangingColor trigger)
     {
         GameObject CubeBleu = (objectList.Find(x => x.tag == "CUBEROUGE")) as GameObject;
-        Instantiate(CubeBleu, objectSpawner.transform.position, objectSpawner.transform.rotation);
+        Instantiate(CubeBleu, objectChangerColorSpawner.transform.position, objectChangerColorSpawner.transform.rotation);
         Destroy(GameObject.FindWithTag("CUBEBLEU"));
     }
 
-    public void TriggerColorChangingCRED(Trigger trigger1)
+    public void TriggerColorChangingCRED(TriggerChangingColor trigger1)
     {
         GameObject CubeROUGE = (objectList.Find(x => x.tag == "CUBEBLEU")) as GameObject;
-        Instantiate(CubeROUGE, objectSpawner.transform.position, objectSpawner.transform.rotation);
+        Instantiate(CubeROUGE, objectChangerColorSpawner.transform.position, objectChangerColorSpawner.transform.rotation);
         Destroy(GameObject.FindWithTag("CUBEROUGE"));
     }
     #endregion
 
     #region BALLE
-    public void TriggerColorChangingBBLEU(Trigger trigger)
+    public void TriggerColorChangingBBLUE(TriggerChangingColor trigger)
     {
         GameObject BalleBleu = (objectList.Find(x => x.tag == "BALLEROUGE")) as GameObject;
-        Instantiate(BalleBleu, objectSpawner.transform.position, objectSpawner.transform.rotation);
+        Instantiate(BalleBleu, objectChangerColorSpawner.transform.position, objectChangerColorSpawner.transform.rotation);
         Destroy(GameObject.FindWithTag("BALLEBLEU"));
     }
 
-    public void TriggerColorChangingBRED(Trigger trigger)
+    public void TriggerColorChangingBRED(TriggerChangingColor trigger)
     {
         GameObject BalleRouge = (objectList.Find(x => x.tag == "BALLEBLEU")) as GameObject;
-        Instantiate(BalleRouge, objectSpawner.transform.position, objectSpawner.transform.rotation);
+        Instantiate(BalleRouge, objectChangerColorSpawner.transform.position, objectChangerColorSpawner.transform.rotation);
         Destroy(GameObject.FindWithTag("BALLEROUGE"));
     }
     #endregion
     #region CYLINDRE
-    public void TriggerColorChangingCYBLEU(Trigger trigger)
+    public void TriggerColorChangingCYBLUE(TriggerChangingColor trigger)
     {
         GameObject CylindreBleu = (objectList.Find(x => x.tag == "CYLINDREROUGE")) as GameObject;
-        Instantiate(CylindreBleu, objectSpawner.transform.position, objectSpawner.transform.rotation);
+        Instantiate(CylindreBleu, objectChangerColorSpawner.transform.position, objectChangerColorSpawner.transform.rotation);
         Destroy(GameObject.FindWithTag("CYLINDREBLEU"));
     }
 
-    public void TriggerColorChangingCYRED(Trigger trigger)
+    public void TriggerColorChangingCYRED(TriggerChangingColor trigger)
     {
         GameObject CylindreROUGE = (objectList.Find(x => x.tag == "CYLINDREBLEU")) as GameObject;
-        Instantiate(CylindreROUGE, objectSpawner.transform.position, objectSpawner.transform.rotation);
+        Instantiate(CylindreROUGE, objectChangerColorSpawner.transform.position, objectChangerColorSpawner.transform.rotation);
         Destroy(GameObject.FindWithTag("CYLINDREROUGE"));
     }
     #endregion
     #endregion
+
+    /// <summary> No Changing Color
+    /// This is the list of script for the spawning of no changing prefab.
+    /// This work with tag detection and spawn the exact same object with the exact same references
+    /// </summary>
+    /// <param name="trigger"> reference to the init of trigger method</param>
+    public void TriggerNoChangingCBLUE(TriggerNochanging trigger)
+    {
+        GameObject CubeBleu = (objectList.Find(x => x.tag == "CUBEBLEU")) as GameObject;
+        Instantiate(CubeBleu, objectNoColorChangingSpawner.transform.position, objectNoColorChangingSpawner.transform.rotation);
+        Destroy(GameObject.Find("CUBEBLEU"));
+        
+    }
 }
+
+
