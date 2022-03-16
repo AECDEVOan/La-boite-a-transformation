@@ -10,6 +10,8 @@ TagManager:
   - BALLEROUGE
   - CYLINDREBLEU
   - CYLINDREROUGE
+  - DropArea
+  - NOCHANGING
   layers:
   - Default
   - TransparentFX
