@@ -11,6 +11,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    private Vector3 size = new Vector3(0.2f, 0.2f, 0.2f);
     #region List
     //Init of the GameObject List (maybe a private settings ? 03/10/2022)
     public List<GameObject> objectList;
@@ -20,7 +21,10 @@ public class GameManager : MonoBehaviour
     //Init of spawner transform (maybe a private settings ? 03/10/2022)
     public Transform objectChangerColorSpawner;
     public Transform objectNoColorChangingSpawner;
+    public Transform objectSizeMoinsSpawner;
     #endregion
+
+    private GameObject  cloneBB;
 
     public void Start()
     {
@@ -130,6 +134,17 @@ public class GameManager : MonoBehaviour
         Destroy(GameObject.Find("CYLINDREROUGE"));
     }
     #endregion
+
+    public void TriggerSizeChangingMoinsBBleu(TriggerChangingSizeMoins trigger)
+    {
+        GameObject BalleBleu = (objectList.Find(x => x.tag == "BALLEBLEU")) as GameObject;
+        Instantiate(BalleBleu, objectSizeMoinsSpawner.transform.position, objectSizeMoinsSpawner.transform.rotation);
+        BalleBleu.transform.localScale = BalleBleu.transform.localScale - size;
+        //BalleBleu.transform.localScale += new Vector3(-0.2f, -0.2f, -0.2f);
+        Destroy(GameObject.Find("BALLEBLEU"));
+    }
 }
+
+
 
 
